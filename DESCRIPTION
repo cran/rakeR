@@ -1,6 +1,7 @@
 Package: rakeR
 Title: Easy Spatial Microsimulation (Raking) in R
-Version: 0.1.1
+Version: 0.1.2
+Date: 2016-11-14
 Authors@R: c(
     person("Phil Mike", "Jones", 
       email = "philmikejones@gmail.com",
@@ -18,10 +19,10 @@ LazyData: true
 RoxygenNote: 5.0.1
 Imports: ipfp
 Suggests: testthat, readr
-URL: https://github.com/philmikejones/rakeR
+URL: https://philmikejones.github.io/rakeR/
 BugReports: https://github.com/philmikejones/rakeR/issues
 NeedsCompilation: no
-Packaged: 2016-09-19 09:04:03 UTC; ggp13pmj
+Packaged: 2016-11-14 11:52:45 UTC; ggp13pmj
 Author: Phil Mike Jones [aut, cre],
   Robin Lovelace [aut] (Many functions are based on code by Robin
     Lovelace and Morgane Dumont),
@@ -29,4 +30,4 @@ Author: Phil Mike Jones [aut, cre],
     Lovelace and Morgane Dumont)
 Maintainer: Phil Mike Jones <philmikejones@gmail.com>
 Repository: CRAN
-Date/Publication: 2016-09-19 11:19:57
+Date/Publication: 2016-11-14 20:56:55
