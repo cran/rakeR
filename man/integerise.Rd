@@ -2,24 +2,42 @@
 % Please edit documentation in R/rake_functions.R
 \name{integerise}
 \alias{integerise}
+\alias{integerize}
 \title{integerise}
 \usage{
-integerise(weights, method = "trs")
+integerise(weights, inds, method = "trs", seed = 42)
 }
 \arguments{
 \item{weights}{A matrix or data frame of fractional weights, typically
-provided by \code{weight()}}
+provided by \code{rakeR::weight()}}
+
+\item{inds}{The individual--level data (i.e. one row per individual)}
 
 \item{method}{The integerisation method specified as a character string.
-Defaults to \code{"trs"}.}
+Defaults to \code{"trs"}; currently other methods are not implemented.}
+
+\item{seed}{The seed to use, defaults to 42.}
 }
 \value{
-A data frame of integerised weights to be used by \code{simulate()}
+A data frame of integerised cases
 }
 \description{
 Generate integer cases from numeric weights matrix.
 }
 \details{
+Extracted weights (using rakeR::extract()) are more 'precise' than
+integerised weights (although the user should be careful this is not
+spurious precision based on context) as they return fractions.
+Nevertheless, integerised weights are useful in cases when:
+  \itemize{
+    \item{Numeric information (such as income) is required, as this needs
+    to be cut() to work with rakeR::extract()}
+    \item{Simulated 'individuals' are required for case studies of key
+    areas.}
+    \item{Input individual-level data for agent-based or dynamic models are
+    required}
+  }
+
 The default integerisation method uses the 'truncate, replicate, sample'
 method developed by Robin Lovelace and Dimitris Ballas
 \url{http://www.sciencedirect.com/science/article/pii/S0198971513000240}
@@ -33,7 +51,8 @@ cons <- data.frame(
   "a0_49"  = c(8, 2, 7),
   "a_gt50" = c(4, 8, 4),
   "f"      = c(6, 6, 8),
-  "m"      = c(6, 4, 3)
+  "m"      = c(6, 4, 3),
+  stringsAsFactors = FALSE
 )
 
 inds <- data.frame(
@@ -46,7 +65,6 @@ inds <- data.frame(
 vars <- c("age", "sex")
 
 weights     <- weight(cons = cons, inds = inds, vars = vars)
-weights_int <- integerise(weights)
-weights_int
+weights_int <- integerise(weights, inds = inds)
+print(weights_int)
 }
-
