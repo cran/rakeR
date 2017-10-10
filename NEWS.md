@@ -1,5 +1,13 @@
-v 0.1.2.90000
-=============
+v 0.2.1
+=======
+
+Patch release:
+
+* Fixes to examples and tests to use correct variable labels and names (thanks Derrick Atherton for pointing this out).
+* Fix version number in NEWS
+
+v 0.2.0
+=======
 
 * integerise() now uses the wrswoR package for sampling without replacement.
 This is in the order of 100s of times faster, reducing the time taken for the function to return from hours to minutes.
